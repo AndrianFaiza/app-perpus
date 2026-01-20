@@ -1,0 +1,464 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+    justify-content: center; /* horizontal tengah */
+  align-items: center;     /* vertikal tengah */
+}
+
+.container {
+    display: grid;
+    grid-template-areas:
+        "side nav"
+        "side content";
+    grid-template-columns: 250px auto; /* lebih stabil pakai px daripada % */
+    grid-template-rows: 70px auto;
+    min-height: 100vh; /* biar seluruh halaman minimal setinggi layar */
+}
+
+/* SIDEBAR */
+aside {
+    grid-area: side;
+    background-color: #0075c4;
+    min-height: 100vh; /* minimal setinggi layar, akan ikut memanjang bila konten lebih tinggi */
+    overflow-y: auto;  /* scroll jika menu terlalu banyak */
+    scrollbar-width: none;
+}
+
+aside .logo .profil-user{
+    width: 30px;
+    height: 30px;
+    background-color:#efa00b;
+    border-radius: 5px;
+    margin-left: 20px;
+    color: white;
+    font-weight: bold;
+    line-height: 30px;
+    text-align: center;
+    
+}
+
+aside .logo {
+    background-color: #0267c1;
+    height: 70px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+
+    
+}
+
+aside .logo h1{
+    font-size: 25px;
+    margin-left: 5px;
+    color: white;
+}
+aside .logo h1 span{
+    color: #efa00b;
+}
+aside .logo p{
+    font-size: 10px;
+    font-style: italic;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    height: 40px;
+    display: inline-block;
+    line-height: 40px;
+    width: 100%;
+    color: white;
+    padding-left: 30px;
+    box-sizing: border-box;
+}
+.menu ul li a:hover {
+    background-color: #0267c1;
+    color: #efa00b;
+}
+.menu ul li .active {
+    background-color: #0267c1;
+    color: #efa00b;
+}
+
+aside h3 {
+    font-size: 15px;
+    font-weight: normal;
+    margin-top: 30px;
+    margin-left: 20px;
+    color: #efa00b;
+}
+
+
+nav{
+    grid-area: nav;
+    background-color: #efa00b;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 50px;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 70px;
+    color: white;
+    
+}
+nav .user{
+    display: flex;
+    gap: 30px;
+}
+
+nav .user h2{
+    font-weight: normal;
+    font-size: 18px;
+}
+nav .user a{
+    font-weight: normal;
+    font-size: 18px;
+    text-decoration: none;
+    color: white;
+}
+
+nav .title{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.content{
+    grid-area: content;
+}
+
+.content .cards{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 50px;
+}
+
+.content .cards .card {
+    width: 300px;
+    height: 100px;
+    border: 1px solid grey;
+    border-radius: 10px;
+}
+
+.content .cards .buku {
+    border: 1px solid rgb(35, 174, 205);
+    padding: 10px;
+    box-sizing: border-box;
+}
+.content .cards .siswa {
+    border: 1px solid #0075c4;
+    padding: 10px;
+    box-sizing: border-box;
+    
+}
+.content .cards .peminjaman {
+    border: 1px solid #11be31;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.content .cards .pengembalian {
+    border: 1px solid #efa00b;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.content .cards .denda {
+    border: 1px solid #efa00b;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.content .cards .buku h3{
+    color: rgb(35, 174, 205);
+}
+.content .cards .buku p span{
+    font-size: 35px;
+    font-weight: bold;
+    color: rgb(35, 174, 205);
+}
+
+
+.content .cards .siswa h3{
+    color: #0075c4;
+}
+.content .cards .siswa p span{
+    font-size: 35px;
+    font-weight: bold;
+    color: #0075c4;
+}
+
+.content .cards .peminjaman h3{
+    color: #2dae1c;
+}
+
+.content .cards .peminjaman p span{
+    font-size: 35px;
+    font-weight: bold;
+    color: #2dae1c;
+}
+
+.content .cards .pengembalian h3{
+    color: #efa00b;
+}
+
+.content .cards .pengembalian p span{
+    font-size: 35px;
+    font-weight: bold;
+    color: #efa00b;
+}
+
+.content .cards .denda h3{
+    color: #ea1152;
+}
+
+.content .cards .denda p span{
+    font-size: 35px;
+    font-weight: bold;
+    color: #ea1152;
+}
+
+/* ===================== */
+/* TABEL DATA SISWA */
+/* ===================== */
+
+.content .data-siswa {
+    padding: 30px;
+}
+
+.content .data-siswa h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #0075c4;
+    border-left: 5px solid #efa00b;
+    padding-left: 10px;
+}
+
+.content .data-siswa table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.content .data-siswa table th,
+.content .data-siswa table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+    font-size: 14px;
+}
+
+.content .data-siswa table th {
+    background-color: #0075c4;
+    color: white;
+    font-weight: bold;
+}
+
+.content .data-siswa table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.content .data-siswa table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* HEADER TABLE UNTUK JUDUL & TOMBOL */
+.header-table {
+    display: flex;
+    justify-content: space-between; /* Judul di kiri, tombol di kanan */
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* Tombol aksi di tabel */
+.table-action a {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    color: white;
+    transition: background-color 0.3s ease, transform 0.1s ease-in-out;
+}
+
+/* Tombol aksi button di tabel */
+.table-action button {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    color: white;
+    transition: background-color 0.3s ease, transform 0.1s ease-in-out;
+    border: none;
+}
+
+/* Tombol Edit */
+.table-action a.btn-edit {
+    background-color: #1caaba;     
+}
+
+.table-action a.btn-edit:hover {
+    background-color: #005fa0;
+    transform: scale(1.05);
+}
+
+/* Tombol Detail */
+.table-action a.btn-detail {
+    background-color: rgb(83, 83, 216);     
+}
+
+.table-action a.btn-detail:hover {
+    background-color: rgb(2, 2, 152);
+    transform: scale(1.05);
+}
+
+/* Tombol Dikembalikan */
+.table-action a.btn-dikembalikan {
+    background-color: rgb(83, 83, 216);
+    margin-left: 5px;   
+}
+
+.table-action a.btn-dikembalikan:hover {
+    background-color: rgb(2, 2, 152);
+    transform: scale(1.05);
+}
+
+/* Tombol Hapus */
+.table-action a.btn-hapus {
+    background-color: #dc3545;      
+}
+
+.table-action a.btn-hapus:hover {
+    background-color: #b02a37;
+    transform: scale(1.05);
+}
+
+
+.btn-tambah {
+        padding: 8px 16px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background 0.3s;
+        text-decoration: none;
+}
+
+.btn-tambah:hover {
+    background-color: #218838;
+}
+
+/* Tambahan CSS khusus form */
+.form-container {
+  max-width: 500px;
+  width: 100%;
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-bottom: 50px; /* ruang kosong bawah */
+}
+
+.form-container h2 {
+    font-size: 24px;
+    color: #0075c4;
+    margin-bottom: 20px;
+    border-left: 5px solid #efa00b;
+    padding-left: 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #0075c4;
+    outline: none;
+    box-shadow: 0 0 4px rgba(0,117,196,0.3);
+}
+
+/* Warna untuk semua label di form */
+.form-container label {
+    color: #4574aa;          /* biru sesuai sidebar */
+    font-weight: 400;        /* sedikit lebih tebal */
+    font-size: 14px;         /* ukuran teks */
+}
+
+
+.btn-submit {
+    background-color: #0075c4;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #005fa0;
+}
+
+.btn-back {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.btn-back:hover {
+    background-color: #5a6268;
+}
+
+/* Search */
+
+.search {
+    width: 300px;
+    height: 30px;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    border: 3px solid rgb(45, 45, 195);
+    text-align: center;
+}
+
+.search:focus {
+    border-color: white;
+}
