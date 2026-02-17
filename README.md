@@ -2,6 +2,10 @@
 
 A simple *PHP & MySQL library management system* for learning or assignment purposes.
 
+## Login
+Username : Admin
+Password : 12345
+
 ## Database Template
 SQL template is located at:
 app-perpus/assets/perpustakaan.sql
